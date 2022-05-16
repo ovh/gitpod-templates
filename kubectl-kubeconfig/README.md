@@ -1,4 +1,4 @@
-# Gitpod Template : Simple kubectl with **~/.kube/config** file generated from Gitpod variable
+# **kubectl** with **~/.kube/config** file generated from Gitpod variable
 
 ## Variable(s)
 
