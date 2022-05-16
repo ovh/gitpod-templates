@@ -1,4 +1,4 @@
-# Gitpod Template : Simple kubectl with **~/.kube/config** file generated with Gitpod variable
+# Gitpod Template : Simple kubectl with **~/.kube/config** file generated from Gitpod variable
 
 ## Declare and set the K8S_KUBECONFIG var
 
