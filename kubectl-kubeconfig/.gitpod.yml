@@ -1,0 +1,14 @@
+image:
+  file: .gitpod.Dockerfile
+
+tasks:
+- name: Create kubeconfig file
+  init: mkdir /home/gitpod/.kube && echo "$K8S_KUBECONFIG" | base64 -d > /home/gitpod/.kube/config
+  command: echo "File /home/gitpod/.kube/config created"
+
+- name: Get public IP address
+  command: curl -s https://ifconfig.me > ${GITPOD_REPO_ROOT}/IP.pub && echo "Your public IP address is stored in the IP.pub file" && gp sync-done ippub
+
+- name: Set PS1 prompt
+  init: gp sync-await ippub
+  command: export PS1='\[\033[38;5;2m\]$(cat ${GITPOD_REPO_ROOT}/IP.pub)\[$(tput sgr0)\] \[\033[38;5;4m\]\w\[$(tput sgr0)\]$(__git_ps1 " (%s)")$ '
