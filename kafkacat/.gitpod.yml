@@ -22,11 +22,10 @@ tasks:
 
 - name: Create kafkacat.conf file
   init: >
-    echo "bootstrap.servers=$KAFKA_SERVICE_URL" > kafkacat.conf &&
+    echo "bootstrap.servers=$(echo $KAFKA_SERVICE_URL | base64 -d)" > kafkacat.conf &&
     echo "enable.ssl.certificate.verification=false" >> kafkacat.conf &&
     echo "security.protocol=ssl" >> kafkacat.conf &&
     echo "ssl.ca.location=ssl/ca.cer" >> kafkacat.conf &&
     echo "ssl.key.location=ssl/myuser.key" >> kafkacat.conf &&
-    echo "ssl.certificate.location=ssl/myuser.cert" >> kafkacat.conf &&
-    gp sync-done kafkaconf
-  command: echo "kafkaconf file created"
+    echo "ssl.certificate.location=ssl/myuser.cert" >> kafkacat.conf
+  command: echo "kafkaconf file created - Public IP=$(curl -s https://ifconfig.me)"
