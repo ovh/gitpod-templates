@@ -14,5 +14,5 @@ From the [Gitpod.io variable dashboard](https://gitpod.io/variables), create var
 ## Test
 
 ```bash
-kafkacat -t mytopic -f kafkacat.conf -C
+kafkacat -t mytopic -F kafkacat.conf -C
 ``` 
