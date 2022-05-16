@@ -8,7 +8,7 @@ From the [Gitpod.io variable dashboard](https://gitpod.io/variables), create var
 |---|---|---
 | K8S_KUBECONFIG | yes | kubeconfig file  
 
-## Use kubectl
+## Test
 
 ```bash
 kubectl get ns
