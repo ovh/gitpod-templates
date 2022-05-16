@@ -1,0 +1,32 @@
+image:
+  file: .gitpod.Dockerfile
+
+tasks:
+- name: Create directories
+  init: >
+    mkdir ssl &&
+    gp sync-done direxists
+  command: echo "Directories created"
+
+- name: Create ca.cer
+  init: gp sync-await direxists && gp sync-done caCer
+  command: echo $KAFKA_CA_CER | base64 -d > ssl/ca.cer
+
+- name: Create myuser.cert
+  init: gp sync-await direxists && gp sync-done myuserCert
+  command: echo $KAFKA_MYUSER_CERT | base64 -d > ssl/myuser.cert
+
+- name: Create myuser.key
+  init: gp sync-await direxists && gp sync-done myuserKey
+  command: echo $KAFKA_MYUSER_KEY | base64 -d > ssl/myuser.key
+
+- name: Create kafkacat.conf file
+  init: >
+    echo "bootstrap.servers=$KAFKA_SERVICE_URL" > kafkacat.conf &&
+    echo "enable.ssl.certificate.verification=false" >> kafkacat.conf &&
+    echo "security.protocol=ssl" >> kafkacat.conf &&
+    echo "ssl.ca.location=ssl/ca.cer" >> kafkacat.conf &&
+    echo "ssl.key.location=ssl/myuser.key" >> kafkacat.conf &&
+    echo "ssl.certificate.location=ssl/myuser.cert" >> kafkacat.conf &&
+    gp sync-done kafkaconf
+  command: echo "kafkaconf file created"
