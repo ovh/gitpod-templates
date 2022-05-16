@@ -1,4 +1,4 @@
-# **kubectl** with **~/.kube/config** file generated from Gitpod variable
+# kubectl with ~/.kube/config file
 
 ## Variable(s)
 
