@@ -6,7 +6,7 @@ From the [Gitpod.io variable dashboard](https://gitpod.io/variables), create var
 
 | Variable Name  | base64 encoded | Content
 |---|---|---
-| K8S_KUBECONFIG | yes | kubeconfig file  
+| K8S_KUBECONFIG_B64 | yes | kubeconfig file  
 
 ## Test
 

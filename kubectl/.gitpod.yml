@@ -3,5 +3,5 @@ image:
 
 tasks:
 - name: Create kubeconfig file
-  init: mkdir /home/gitpod/.kube && echo "$K8S_KUBECONFIG" | base64 -d > /home/gitpod/.kube/config
+  init: mkdir /home/gitpod/.kube && echo "$K8S_KUBECONFIG_B64" | base64 -d > /home/gitpod/.kube/config
   command: echo "File /home/gitpod/.kube/config created"
