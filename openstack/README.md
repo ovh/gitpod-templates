@@ -11,5 +11,6 @@ From the [Gitpod.io variable dashboard](https://gitpod.io/variables), create var
 ## Test
 
 ```bash
-
+. openrc
+openstack network list
 ``` 
