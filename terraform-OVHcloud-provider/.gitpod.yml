@@ -2,10 +2,6 @@ image:
   file: .gitpod.Dockerfile
 
 tasks:
-- name: Set OVHcloud API variables
-  init: export OVH_ENDPOINT="ovh-eu" && export OVH_APPLICATION_KEY="$(echo $OVH_API_AK_b64|base64 -d)" && export OVH_APPLICATION_SECRET="$(echo $OVH_API_AS_b64|base64 -d)" && export OVH_CONSUMER_KEY="$(echo $OVH_API_CK_b64|base64 -d)"
-  command: echo "OVHcloud API variables setted"
-
-- name: Set Public IP variable
-  init: export TF_VAR_IP="$(curl ifconfig.me)/32"
-  command: echo "Public IP TF_VAR_IP variable setted with value \"$TF_VAR_IP\""
+- name: Set variables
+  init: export OVH_ENDPOINT="ovh-eu" && export OVH_APPLICATION_KEY="$(echo $OVH_API_AK_b64|base64 -d)" && export OVH_APPLICATION_SECRET="$(echo $OVH_API_AS_b64|base64 -d)" && export OVH_CONSUMER_KEY="$(echo $OVH_API_CK_b64|base64 -d)" && export TF_VAR_IP="$(curl ifconfig.me)/32"
+  command: echo "Variables setted"
