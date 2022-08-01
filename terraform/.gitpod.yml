@@ -1,8 +1,2 @@
 image:
   file: .gitpod.Dockerfile
-
-tasks:
-- name: Create openrc file
-  init: echo "$OS_OPENRC_B64" | base64 -d > ./openrc 
-  command: echo "File /home/gitpod/openrc created"
-
