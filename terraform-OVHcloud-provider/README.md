@@ -6,6 +6,8 @@
 
 ## Variable(s)
 
+[Create OVHcloud API token](https://www.ovh.com/auth/api/createToken) 
+
 From the [Gitpod.io variable dashboard](https://gitpod.io/variables), create variable(s) as:
 
 | Variable Name  | base64 encoded | Content
@@ -17,5 +19,5 @@ From the [Gitpod.io variable dashboard](https://gitpod.io/variables), create var
 ## Test
 
 ```bash
-terraform -version
+terraform init
 ``` 
